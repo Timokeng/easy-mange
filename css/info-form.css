@@ -1,0 +1,40 @@
+/*上传表单样式*/
+.main-body .content .info-form{
+    flex-grow: 1;
+    margin: 50px 40px;
+}
+.main-body .content .info-form div{
+    margin-bottom: 20px;
+}
+.main-body .content .info-form .content-title{
+    font-weight: bolder;
+}
+.main-body .content .info-form .form-item{
+    color: #656b75;
+    padding-left: 20px;
+}
+.main-body .content .info-form .form-item input{
+    width: 60%;
+    height: 25px;
+    margin-left: 20px;
+}
+.main-body .content .info-form .form-item textarea{
+    width: 60%;
+    margin-left: 20px;
+}
+.main-body .content .info-form .form-item select{
+    width: 25%;
+    height: 25px;
+    margin-left: 20px;
+}
+.main-body .content .info-form .submitButton{
+    width: 50%;
+    height: 40px;
+    color: #fff;
+    background: #ff4500;
+    font-size: 18px;
+    margin-left: 20%;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>贵似晨星|卖家中心</title>
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/info-form.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="headTop">
+                <h1>贵似晨星|卖家中心</h1>
+            </div>
+            <div class="main-body">
+                <div class="nav">
+                    <div>常用功能</div>
+                    <ul>
+                        <li>发布拍品</li>
+                        <li @click="jump('myCommit.html')">拍品管理</li>
+                    </ul>
+                    <div>发货管理</div>
+                    <ul>
+                        <li>订单管理</li>
+                        <li>快捷发货</li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="info-form" v-if="!success">
+                        <form @submit.prevent="onSubmit">
+                            <div class="content-title">基础信息</div>
+                            <div class="form-item">
+                                <label>拍品标题</labe>
+                                <input v-model="auction.title">
+                            </div>
+                            <div class="form-item">
+                                <label>起拍价格</label>
+                                <input v-model="auction.price">
+                            </div>
+                            <div class="form-item">
+                                <label>截止时间</label>
+                                <select v-model="day">
+                                    <option 
+                                        v-for="(option,index) in options1"
+                                        :value="option.value"
+                                        :key="index"
+                                    >{{ option.name }}</option>
+                                </select>
+                                <select v-model="hour">
+                                    <option
+                                        v-for="(option,index) in options2"
+                                        :value="option.value"
+                                        :key="index"
+                                    >{{ option.name }}</option>
+                                </select>
+                            </div>
+                            <div class="content-title">拍品详细</div>
+                            <div class="form-item">
+                                <label style="vertical-align:top;">拍品描述</label>
+                                <textarea v-model="auction.description" rows="6"></textarea>
+                            </div>
+                            <div class="form-item">
+                                <label>上传图片</label>
+                                <input type="file">
+                            </div>
+                            <button class="submitButton">提交发布</button>
+                        </form>
+                    </div>
+                    <div class="successMessage" v-if="success">
+                        <div class="message">
+                            <img src="img/success.png" style="height:60px; width:60px;">
+                            发布成功,信息审核中...
+                        </div>
+                        <div class="control">
+                            <button class="lookInfo" @click="jump('myCommit.html')">查看信息</button>
+                            <button class="commitAgain" @click="reset">再发一条</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/commitAuction.js"></script>
+    </body>
+</html>

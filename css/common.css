@@ -1,0 +1,76 @@
+/* 初始化页面 */
+body,ol,ul,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0} 
+body{font:12px"宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;} 
+a,a:hover,a:active,a:visited,a:link{color:#bfcbd9;text-decoration:none}  
+em{font-style:normal} 
+li{list-style:none} 
+img{border:0;vertical-align:middle} 
+table{border-collapse:collapse;border-spacing:0} 
+p{word-wrap:break-word}
+
+/* 通用样式 */
+.headTop{
+    box-shadow: 5px 5px 5px #656b75;
+    margin-bottom: 20px;
+    padding: 5px 0px 5px 50px; 
+}
+
+.main-body{
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-body .nav{
+    width: 200px;
+    height: auto;
+    min-height: 600px;
+    margin-right: 20px;
+    padding: 40px 20px;
+    border-top: 6px solid #ff4500;
+    background: #2e3c5a;
+    color: #e9f0f7;
+}
+.main-body .nav div{
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.main-body .nav li{
+    padding: 10px 0 10px 50px;
+    cursor: pointer;
+}
+.main-body .nav li:hover{
+    background: #394b70;
+    border-left: 3px solid #ff4500;
+}
+
+.main-body .content{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    
+}
+.main-body .content .successMessage{
+    margin-top: 100px;
+}
+.main-body .content .successMessage .message{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.main-body .content .successMessage button{
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background: #ff4500;
+    font-size: 14px;
+    margin-left: 10px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+.main-body .content .successMessage .commitAgain{
+    color: #ff4500;
+    background: #fff;
+    border-color: #ff4500;
+}
