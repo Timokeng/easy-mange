@@ -17,7 +17,7 @@
                 <div class="nav">
                     <div>常用功能</div>
                     <ul>
-                        <li>发布拍品</li>
+                        <li @click="jump('commitAuction.html')">发布拍品</li>
                         <li>拍品管理</li>
                     </ul>
                     <div>发货管理</div>
@@ -27,24 +27,41 @@
                     </ul>
                 </div>
                 <div class="content">
-                    <div class="showBox">
-                        <div class="auctionId">拍品编号： auction.id </div>
+                    <div class="filter">
+                        <label>状态</label>
+                        <select v-model="auction_status" @change="getList">
+                            <option
+                                v-for="(option, index) in options"
+                                :value="option.value"
+                                :key="index"
+                            >{{option.name}}</option>
+                        </select>
+                    </div>
+                    <div class="showBox" v-for="(auction, index) in auctions" :key="index">
+                        <div class="auctionId">拍品编号：{{auction.id}}</div>
                         <div class="auctionInfo">
-                            <div class="pic">图片</div>
+                            <div class="pic"><img :src="auction.image" style="width:90px;height:90px;"></div>
                             <div class="des">
-                                <div class="title">标题</div>
-                                <div class="time">时间</div>
+                                <div class="title" :title="auction.title">{{simpleTitle(auction.title)}}</div>
+                                <div class="time">{{auction.time}}</div>
                                 <div class="price">
-                                    <span class="currentPrice">现在的价格</span>
-                                    <span class="currentTimes">竞品次数</span>
+                                    <span class="currentPrice">{{auction.price}}元</span>
+                                    <span class="currentTimes">{{auction.bid_number}}次竞价</span>
                                 </div>
                             </div>
                         </div>
                         <div class="auctionStatus">
-                            <div class="statusDes">状态描述</div>
-                            <div class="changeStatus">修改状态</div>
+                            <div class="statusDes">
+                                <p>{{showStatus(auction.status)}}</p>
+                                <span v-if="auction.status === 'biding'">拍品正在拍卖中...</span>
+                                <span v-if="auction.status === 'biding_end'">拍品已经拍卖结束，可查看结果</span>
+                                <span v-if="auction.status === 'shelve_applying'">该信息正在审核中，请稍等...</span>
+                                <span v-if="auction.status === 'unshelve'">拍品已被下架，可以修改信息</span>
+                            </div>
+                            <div class="changeStatus" v-if="auction.status === 'unshelve'" @click="toChange(auction.id)">修改</div>
                         </div>
                     </div>
+                    <div class="getMore" @click="getMore">{{hint}}</div>
                 </div>
             </div>
         </div>

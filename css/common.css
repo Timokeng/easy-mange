@@ -24,8 +24,9 @@ p{word-wrap:break-word}
 .main-body .nav{
     width: 200px;
     height: auto;
-    min-height: 600px;
+    min-height: 500px;
     margin-right: 20px;
+    margin-bottom: 100px;
     padding: 40px 20px;
     border-top: 6px solid #ff4500;
     background: #2e3c5a;
@@ -49,7 +50,7 @@ p{word-wrap:break-word}
     width: 60%;
     display: flex;
     justify-content: center;
-    
+    flex-wrap: wrap;
 }
 .main-body .content .successMessage{
     margin-top: 100px;

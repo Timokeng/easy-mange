@@ -30,15 +30,25 @@ var app = new Vue({
                 {name: '23:00', value:'23:00:00'},
                 {name: '24:00', value:'24:00:00'},
             ],
-            day: 0,
-            hour: '',
-            url: '',
+            day: 1,
+            hour: '10:00:00',
             auction_id: '',
+            url: '',
             success: false,
             fileList: []
         }
     },
+    mounted(){
+        this.judgeOperation();
+    },
     methods: {
+        judgeOperation: function(){
+            const str = location.search.substr(1);
+            if(str != ''){
+                this.auction_id = str.split('=')[1];
+                this.getInfo();
+            }
+        },
         onSubmit: function(){
             const result = this.validate();
             if(result){
@@ -79,22 +89,40 @@ var app = new Vue({
             } else{
                 this.url = `https://private-anon-7e2c2a2bc1-auction17.apiary-mock.com/auctions`;
             }
-            console.log(this.auction);
             this.$http.post(this.url, this.auction, {emulateJSON:true}).then(function(res){
-                this.success = true;
+                if(res.body.code === 0){
+                    this.success = true;
+                } else{
+                    alert(res.body.message);
+                }
             }, function(res){
                 alert('上传数据时出现错误，请重试');
+            });
+        },
+        getInfo: function(){
+            const url = `https://private-anon-7e2c2a2bc1-auction17.apiary-mock.com/auctions/${this.auction_id}`;
+            this.$http.get(url, {auction_id:this.auction_id}).then(function(res){
+                if(res.body.code === 0){
+                    const currentAuction = res.body.auction;
+                    this.auction.title = currentAuction.title;
+                    this.auction.price = currentAuction.price;
+                    this.auction.description = currentAuction.description;
+                }
+            }, function(res){
+                alert('出现未知错误');
+                jump('myCommit.html');
             });
         },
         reset: function(){
             this.auction = {
                 title: '',
-                price: '',
+                price: 100,
                 time: '',
                 description: '',
             };
-            this.day = 0;
-            this.hour = '';
+            this.day = 1;
+            this.hour = '10:00:00';
+            this.url = '';
             this.success = false;
             this.auction_id = '';
         },
