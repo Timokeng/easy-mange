@@ -96,7 +96,7 @@ var app = new Vue({
                     alert(res.body.message);
                 }
             }, function(res){
-                alert('上传数据时出现错误，请重试');
+                alert('发生未知错误');
             });
         },
         getInfo: function(){

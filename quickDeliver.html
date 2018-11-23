@@ -17,12 +17,12 @@
                 <div class="nav">
                     <div>常用功能</div>
                     <ul>
-                        <li>发布拍品</li>
+                        <li @click="jump('commitAuction.html')">发布拍品</li>
                         <li @click="jump('myCommit.html')">拍品管理</li>
                     </ul>
                     <div>发货管理</div>
                     <ul>
-                        <li @click="jump('quickDeliver.html')">快捷发货</li>
+                        <li>快捷发货</li>
                         <li>我的发货</li>
                     </ul>
                 </div>
@@ -31,40 +31,39 @@
                         <form @submit.prevent="onSubmit">
                             <div class="content-title">基础信息</div>
                             <div class="form-item">
-                                <label>拍品标题</label>
-                                <input v-model="auction.title">
-                            </div>
-                            <div class="form-item">
-                                <label>起拍价格</label>
-                                <input v-model="auction.price">
-                            </div>
-                            <div class="form-item">
-                                <label>截止时间</label>
-                                <select v-model="day">
+                                <label>快递公司</label>
+                                <select v-model="deliver.company">
+                                    <option value="" selected disabled style="display: none;">请选择快递公司</option>
                                     <option 
                                         v-for="(option,index) in options1"
                                         :value="option.value"
                                         :key="index"
                                     >{{ option.name }}</option>
                                 </select>
-                                <select v-model="hour">
-                                    <option
-                                        v-for="(option,index) in options2"
-                                        :value="option.value"
-                                        :key="index"
-                                    >{{ option.name }}</option>
-                                </select>
-                            </div>
-                            <div class="content-title">拍品详细</div>
-                            <div class="form-item">
-                                <label style="vertical-align:top;">拍品描述</label>
-                                <textarea v-model="auction.description" rows="6"></textarea>
                             </div>
                             <div class="form-item">
-                                <label>上传图片</label>
-                                <input type="file">
+                                <label>快递单号</label>
+                                <input v-model="deliver.id">
                             </div>
-                            <button class="submitButton">提交发布</button>
+                            <div class="form-item">
+                                <label>选择拍品</label>
+                                <input v-model="deliver.auctions" style="width:30%;" disabled>
+                                <div class="editButton" @click="showChoose = !showChoose">{{editStatus}}</div>
+                                <transition name="choose-box">
+                                    <div class="chooseBox" v-if="showChoose">
+                                        <ul>
+                                            <li 
+                                                v-for="(option, index) in options2" 
+                                                :key="index"
+                                                :title="option.name">
+                                                <input type="checkbox" :value="option.id" @change="chooseAuctions($event)"> 
+                                                <span>{{option.id}} — {{option.name.substr(0,7)}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </transition>
+                            </div>
+                            <button class="submitButton">提交</button>
                         </form>
                     </div>
                     <div class="successMessage" v-if="success">
@@ -80,6 +79,6 @@
                 </div>
             </div>
         </div>
-        <script src="js/commitAuction.js"></script>
+        <script src="js/quickDeliver.js"></script>
     </body>
 </html>

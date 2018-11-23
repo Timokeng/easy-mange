@@ -27,6 +27,23 @@
     height: 25px;
     margin-left: 20px;
 }
+.main-body .content .info-form .form-item .chooseBox{
+    width: 30%;
+    height: 200px;
+    margin-left: 80px;
+    border: 1px solid #bbbfc7;
+    overflow: auto;
+}
+.main-body .content .info-form .form-item .chooseBox li{
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid #bbbfc7;
+}
+.main-body .content .info-form .form-item .chooseBox li input{
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+}
 .main-body .content .info-form .submitButton{
     width: 50%;
     height: 40px;
@@ -37,4 +54,30 @@
     border-radius: 5px;
     outline: none;
     cursor: pointer;
+}
+.main-body .content .info-form .editButton{
+    width: 60px;
+    height: 25px;
+    display: inline-block;
+    color: #fff;
+    background: #ff4500;
+    text-align: center;
+    font-size: 14px;
+    line-height: 25px;
+    margin-left: 10px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+/*过度动画*/
+.choose-box-enter-active{
+    transition: all .8s ease;
+}
+.choose-box-leave-active{
+    transition: all .8s ease;
+}
+.choose-box-enter, .choose-box-leave-to{
+   transform: translateY(-10px);
+   opacity: 0; 
 }

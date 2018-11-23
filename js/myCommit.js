@@ -2,14 +2,7 @@ var app = new Vue({
     el: "#app",
     data() {
         return {
-            auctions: [{
-                title: '',
-                price: 0,
-                time: '',
-                status: '',
-                bid_number: 0,
-                image: ''
-            }],
+            auctions: [],
             options: [
                 {name: '全部', value: 'all'},
                 {name: '审核中', value: 'shelve_applying'},
@@ -31,7 +24,11 @@ var app = new Vue({
             this.page = 1;
             const url = `https://private-anon-d7acce3be6-auction17.apiary-mock.com/auctions/seller?status=${this.auction_status}&page=${this.page}`;
             this.$http.get(url).then(function(res){
-                this.auctions = res.body.auctions;
+                if(res.body.code === 0){
+                    this.auctions = res.body.auctions;
+                } else{
+                    alert(res.body.message);
+                }
             }, function(res){
                 alert('发生未知错误');
             });
