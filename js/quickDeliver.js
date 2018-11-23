@@ -5,6 +5,7 @@ var app = new Vue({
             deliver: {
                 company: '',
                 id: '',
+                time: '',
                 auctions: []
             },
             options1: [
@@ -18,6 +19,7 @@ var app = new Vue({
             options2: [
                 {name:'香港一二三四五六七八', id: 1001},
             ],
+            showNav: 2,
             success: false,
             showChoose: false
         }
@@ -50,6 +52,9 @@ var app = new Vue({
                 return false;
             } else if(this.deliver.auctions.length === 0){
                 alert('至少选择一个拍品');
+                return false;
+            } else if(this.deliver.time === ''){
+                alert('请输入寄件日期');
                 return false;
             } else{
                 return true;

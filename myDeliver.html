@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>贵似晨星|卖家中心</title>
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/info-list.css">
+        <link rel="stylesheet" href="css/info-list-table.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="headTop">
+                <h1>贵似晨星|卖家中心</h1>
+            </div>
+            <div class="main-body">
+                <div class="nav">
+                    <div @click="showNav = 1">常用功能</div>
+                    <transition name="choose-nav">
+                        <ul v-if="showNav == 1">
+                            <li @click="jump('commitAuction.html')">发布拍品</li>
+                            <li @click="jump('myCommit.html')">拍品管理</li>
+                        </ul>
+                    </transition>
+                    <div @click="showNav = 2">发货管理</div>
+                    <transition name="choose-nav">
+                        <ul v-if="showNav == 2">
+                            <li @click="jump('quickDeliver.html')">快捷发货</li>
+                            <li>我的发货</li>
+                        </ul>
+                    </transition>
+                </div>
+                <div class="content">
+                    <div class="filter">
+                        <input
+                            class="search"
+                            v-model="deliver_id"
+                            @change="search"
+                            placeholder="请输入快递单号">
+                    </div>
+                    <div class="table">
+
+                    </div>
+                    <div class="getMore" @click="getMore">{{hint}}</div>
+                </div>
+            </div>
+        </div>
+        <script src="js/myDeliver.js"></script>
+    </body>
+</html>

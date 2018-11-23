@@ -33,6 +33,7 @@ var app = new Vue({
             day: 1,
             hour: '10:00:00',
             auction_id: '',
+            showNav: 1,
             url: '',
             success: false,
             fileList: []

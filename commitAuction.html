@@ -15,16 +15,20 @@
             </div>
             <div class="main-body">
                 <div class="nav">
-                    <div>常用功能</div>
-                    <ul>
-                        <li>发布拍品</li>
-                        <li @click="jump('myCommit.html')">拍品管理</li>
-                    </ul>
-                    <div>发货管理</div>
-                    <ul>
-                        <li @click="jump('quickDeliver.html')">快捷发货</li>
-                        <li>我的发货</li>
-                    </ul>
+                    <div @click="showNav = 1">常用功能</div>
+                    <transition name="choose-nav">
+                        <ul v-if="showNav == 1">
+                            <li>发布拍品</li>
+                            <li @click="jump('myCommit.html')">拍品管理</li>
+                        </ul>
+                    </transition>
+                    <div @click="showNav = 2">发货管理</div>
+                    <transition name="choose-nav">
+                        <ul v-if="showNav == 2">
+                            <li @click="jump('quickDeliver.html')">快捷发货</li>
+                            <li @click="jump('myDeliver.html')">我的发货</li>
+                        </ul>
+                    </transition>
                 </div>
                 <div class="content">
                     <div class="info-form" v-if="!success">

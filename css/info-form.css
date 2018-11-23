@@ -70,6 +70,31 @@
     cursor: pointer;
 }
 
+/*表单提交成功样式*/
+.main-body .content .successMessage{
+    margin-top: 100px;
+}
+.main-body .content .successMessage .message{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.main-body .content .successMessage button{
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background: #ff4500;
+    font-size: 14px;
+    margin-left: 10px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+.main-body .content .successMessage .commitAgain{
+    color: #ff4500;
+    background: #fff;
+    border-color: #ff4500;
+}
+
 /*过度动画*/
 .choose-box-enter-active{
     transition: all .8s ease;

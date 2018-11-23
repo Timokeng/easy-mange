@@ -1,0 +1,14 @@
+/*表格样式*/
+.content .filter .search{
+    width: 130px;
+    height: 25px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.content .table{
+    width: 100%;
+    height: 500px;
+    margin-left: 20px;
+    border: 1px solid #000;
+}

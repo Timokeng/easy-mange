@@ -12,6 +12,7 @@ var app = new Vue({
             ],
             page: 1,
             auction_status: 'all',
+            showNav: 1,
             hint: '获取更多',
             moreAuctions: []
         }

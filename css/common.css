@@ -36,13 +36,17 @@ p{word-wrap:break-word}
     margin-bottom: 20px;
     padding-left: 20px;
     padding-top: 20px;
+    cursor: pointer;
 }
-.main-body .nav li{
+.main-body .nav ul{
+    background: #394b70;
+}
+.main-body .nav ul li{
     padding: 10px 0 10px 50px;
     cursor: pointer;
 }
 .main-body .nav li:hover{
-    background: #394b70;
+    background: #485e8b;
     border-left: 3px solid #ff4500;
 }
 
@@ -52,26 +56,16 @@ p{word-wrap:break-word}
     justify-content: center;
     flex-wrap: wrap;
 }
-.main-body .content .successMessage{
-    margin-top: 100px;
+
+/*过度动画*/
+.choose-nav-enter-active{
+    transition: all .8s ease;
 }
-.main-body .content .successMessage .message{
-    font-size: 30px;
-    margin-bottom: 20px;
+.choose-nav-leave-active{
+    transition: all .8s ease;
 }
-.main-body .content .successMessage button{
-    width: 100px;
-    height: 40px;
-    color: #fff;
-    background: #ff4500;
-    font-size: 14px;
-    margin-left: 10px;
-    border-radius: 5px;
-    outline: none;
-    cursor: pointer;
+.choose-nav-enter, .choose-box-leave-to{
+   transform: translateY(-10px);
+   opacity: 0; 
 }
-.main-body .content .successMessage .commitAgain{
-    color: #ff4500;
-    background: #fff;
-    border-color: #ff4500;
-}
+
