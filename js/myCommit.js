@@ -47,6 +47,7 @@ var app = new Vue({
                 }
             }, res => {
                 alert('发生未知错误');
+                this.hint = '请稍后再试...';
             });
             this.auctions = this.auctions.concat(this.moreAuctions);
             this.moreAuctions = [];

@@ -29,6 +29,13 @@
                             <li @click="jump('myDeliver.html')">我的发货</li>
                         </ul>
                     </transition>
+                    <div @click="showNav = 3">资金管理</div>
+                    <transition name="choose-nav">
+                        <ul v-if="showNav == 3">
+                            <li @click="jump('moneyAll.html')">资金统计</li>
+                            <li @click="jump('moneyDetail.html')">资金明细</li>
+                        </ul>
+                    </transition>
                 </div>
                 <div class="content">
                     <div class="info-form" v-if="!success">

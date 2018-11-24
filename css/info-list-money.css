@@ -1,0 +1,78 @@
+/*余额模块样式*/
+.content .currentMoney{
+    margin-bottom: 20px;
+}
+.content .currentMoney .money-number{
+    padding: 0 10px;
+    font-size: 30px;
+    color: #ff4500;
+}
+.content .currentMoney button{
+    width: 80px;
+    height: 30px;
+    color: #fff;
+    background: #ff4500;
+    font-size: 14px;
+    margin-left: 10px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+/*头栏样式*/
+.content .head{
+    font-size: 12px;
+    color: #000000;
+    padding: 5px 20px;
+    background: #e3e6ec
+}
+
+/*昨日收益模块样式*/
+.content .yesMoney{
+    border: 1px solid #e3e6ec;
+    margin-bottom: 40px;
+}
+.content .yesMoney .body .item{
+    width: 24%;
+    display: inline-block;
+    margin: 10px 0px;
+    text-align: center;
+    border-left: 1px solid #e3e6ec;
+}
+.content .yesMoney .body .item .number{
+    height: 100px;
+    line-height: 100px;
+    font-size: 30px;
+}
+
+/*资金统计模块*/
+.content .moneyList{
+    border: 1px solid #e3e6ec;
+    border-bottom: none;
+    margin-bottom: 40px;
+    font-size: 12px;
+}
+.content .moneyList .item{
+    border-bottom: 1px solid #e3e6ec;
+}
+.content .moneyList .item .one{
+    display: inline-block;
+    width: 19%;
+    padding: 5px 0 5px 20px;
+}
+.content .moneyList .item .other{
+    display: inline-block;
+    width: 19%;
+    text-align: right;
+}
+.content .moneyList .getMoreList{
+    background: #e3e6ec;
+    padding: 5px 0 5px 20px;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+}
+.content .moneyList .getMoreList:hover{
+    background: #9da8bd;
+    color: #e3e6ec;
+}

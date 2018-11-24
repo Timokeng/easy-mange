@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>贵似晨星|卖家中心</title>
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/info-list.css">
+        <link rel="stylesheet" href="css/info-list-money.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+        <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="headTop">
+                <h1>贵似晨星|卖家中心</h1>
+            </div>
+            <div class="main-body">
+                <div class="nav">
+                    <div @click="showNav = 1">常用功能</div>
+                    <transition name="choose-nav">
+                        <ul v-if="showNav == 1">
+                            <li @click="jump('commitAuction.html')">发布拍品</li>
+                            <li @click="jump('myCommit.html')">拍品管理</li>
+                        </ul>
+                    </transition>
+                    <div @click="showNav = 2">发货管理</div>
+                    <transition name="choose-nav">
+                        <ul v-if="showNav == 2">
+                            <li @click="jump('quickDeliver.html')">快捷发货</li>
+                            <li @click="jump('myDeliver.html')">我的发货</li>
+                        </ul>
+                    </transition>
+                    <div @click="showNav = 3">资金管理</div>
+                    <transition name="choose-nav">
+                        <ul v-if="showNav == 3">
+                            <li>资金统计</li>
+                            <li @click="jump('moneyDetail.html')">资金明细</li>
+                        </ul>
+                    </transition>
+                </div>
+                <div class="content">
+                    <div class="currentMoney">
+                        <span>账号余额：<span class="money-number">{{currentMoney}}</span>元</span>
+                        <button @click="jump('moneyOut.html')">提现</button>
+                    </div>
+                    <div class="yesMoney">
+                        <div class="head">昨日关键指标</div>
+                        <div class="body">
+                            <div class="item" style="border-left: none">
+                                <div class="title">上拍数量</div>
+                                <div class="number">{{yesMoney.bid_number}}</div>
+                            </div>
+                            <div class="item">
+                                <div class="title">成拍数量</div>
+                                <div class="number">{{yesMoney.bid_ok_number}}</div>
+                            </div>
+                            <div class="item">
+                                <div class="title">成拍金额</div>
+                                <div class="number">{{yesMoney.bid_money}}</div>
+                            </div>
+                            <div class="item">
+                                <div class="title">累计收益金额</div>
+                                <div class="number">{{yesMoney.get_money}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="moneyList">
+                        <div class="head">资金统计</div>
+                        <div class="body">
+                            <div class="item">
+                                <div class="one">时间</div>
+                                <div class="other">上拍数量</div>
+                                <div class="other">成拍数量</div>
+                                <div class="other">成拍金额</div>
+                                <div class="other">累计收益金额</div>
+                            </div>
+                            <div class="item" v-for="(option, index) in moneyLists" :key="index">
+                                <div class="one">{{option.time}}</div>
+                                <div class="other">{{option.bid_number}}</div>
+                                <div class="other">{{option.bid_ok_number}}</div>
+                                <div class="other">{{option.bid_money}}</div>
+                                <div class="other">{{option.get_money}}</div>
+                            </div>
+                        </div>
+                        <div class="getMoreList" @click="getMore">{{hint}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/moneyAll.js"></script>
+    </body>
+</html>
