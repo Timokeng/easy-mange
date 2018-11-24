@@ -69,7 +69,7 @@ var app = new Vue({
                     alert(res.body.message);
                 }
             }, function(res){
-                alert('发生未知错误');
+                alert('接口还没弄呢！');
                 //window.location.href = 'myDeliver.html';
             });
         },

@@ -2,7 +2,7 @@
 .content .showBox{
     width: 100%;
     height: 150px;
-    margin: 20px 20px;
+    margin: 20px 0;
     border: 1px solid #e3e6ec;
     cursor: default;
 }

@@ -8,7 +8,49 @@
 }
 .content .table{
     width: 100%;
-    height: 500px;
-    margin-left: 20px;
-    border: 1px solid #000;
+}
+
+/*标题行*/
+.content .table .title-tr{
+    width: 100%;
+    padding: 2px 0;
+    background: #9da8bd;
+}
+.content .table .title-tr div{
+    display: inline-block;
+    text-align: center;
+}
+
+/*内容行*/
+.content .table .content-tr{
+    width: 100%;
+    padding: 7px 0;
+    border-bottom: .5px solid #9da8bd;
+}
+.content .table .content-tr div{
+    display: inline-block;
+    text-align: center;
+}
+
+.content .table .id{
+    width: 10%;
+}
+.content .table .deliver_id{
+    width: 20%;
+}
+.content .table .company{
+    width: 10%;
+}
+.content .table .status{
+    width: 10%;
+}
+.content .table .auctions{
+    width: 20%;
+}
+.content .table .time{
+    width: 15%;
+}
+.content .table .control{
+    width: 10%;
+    cursor: pointer;
 }
