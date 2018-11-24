@@ -1,6 +1,5 @@
 /*上传表单样式*/
 .main-body .content .info-form{
-    flex-grow: 1;
     margin: 50px 40px;
 }
 .main-body .content .info-form div{
@@ -27,6 +26,8 @@
     height: 25px;
     margin-left: 20px;
 }
+
+/*下拉选择框*/
 .main-body .content .info-form .form-item .chooseBox{
     width: 30%;
     height: 200px;

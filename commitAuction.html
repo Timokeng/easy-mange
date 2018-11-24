@@ -3,10 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>贵似晨星|卖家中心</title>
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/info-form.css">
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
         <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+        <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     </head>
     <body>
         <div id="app">
@@ -71,9 +73,23 @@
                                 <label style="vertical-align:top;">拍品描述</label>
                                 <textarea v-model="auction.description" rows="6"></textarea>
                             </div>
+                            <div class="content-title">详情图片</div>
                             <div class="form-item">
-                                <label>上传图片</label>
-                                <input type="file">
+                                <div class="picture-card">
+                                    <el-upload
+                                        action="https://jsonplaceholder.typicode.com/posts/"
+                                        list-type="picture-card"
+                                        :limit="10"
+                                        :on-exceed="handleExceed"
+                                        :on-success="handleSuccess"
+                                        :on-preview="handlePictureCardPreview"
+                                        :on-remove="handleRemove">
+                                        <i class="el-icon-plus"></i>
+                                    </el-upload>
+                                    <el-dialog :visible.sync="dialogVisible">
+                                        <img width="100%" :src="dialogImageUrl" alt="">
+                                    </el-dialog>
+                                </div>
                             </div>
                             <button class="submitButton">提交发布</button>
                         </form>

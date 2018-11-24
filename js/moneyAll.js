@@ -57,6 +57,9 @@ var app = new Vue({
             this.moneyLists = this.moneyLists.concat(this.moreLists);
             this.moreLists = [];
         },
+        out(){
+            alert('本应用暂时不支持手动提现，固定周期内系统会自动提现。');
+        },
         jump(url){
             window.location.href = url;
         }

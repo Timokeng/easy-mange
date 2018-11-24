@@ -7,6 +7,7 @@ var app = new Vue({
                 price: 100,
                 time: '',
                 description: '',
+                url_list: []
             },
             options1: [
                 {name: '今天', value: 1},
@@ -34,6 +35,8 @@ var app = new Vue({
             hour: '10:00:00',
             auction_id: '',
             showNav: 1,
+            dialogImageUrl: '',
+            dialogVisible: false,
             url: '',
             success: false,
             fileList: []
@@ -75,6 +78,9 @@ var app = new Vue({
             } else if(this.auction.description == 0){
                 alert('请输入拍品描述');
                 return false;
+            } else if(this.auction.url_list.length == 0){
+                alert('至少上传一张图片');
+                return false;
             } else{
                 const date = new Date();
                 const month = date.getMonth() + 1;
@@ -92,6 +98,7 @@ var app = new Vue({
             }
             this.$http.post(this.url, this.auction, {emulateJSON:true}).then(function(res){
                 if(res.body.code === 0){
+                    this.auction_id = res.body.auction_id;
                     this.success = true;
                 } else{
                     alert(res.body.message);
@@ -113,6 +120,23 @@ var app = new Vue({
                 alert('出现未知错误');
                 jump('myCommit.html');
             });
+        },
+        handleExceed(){
+            alert('每件拍品最多附带十张图片，请仔细考虑');
+        },
+        handleRemove(file) {
+            this.auction.url_list.splice(this.auction.url_list.indexOf(file.url), 1);
+        },
+        handleSuccess(res) {
+            if(res.body.code === 0){
+                this.auction.url_list.push(res.body.url);
+            } else{
+                alert('上传图片失败请重传');
+            }
+        },
+        handlePictureCardPreview(file) {
+            this.dialogImageUrl = file.url;
+            this.dialogVisible = true;
         },
         reset: function(){
             this.auction = {
