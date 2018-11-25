@@ -30,15 +30,3 @@
 .content .table .other{
     width: 14%;
 }
-
-.content .getMoreList{
-    background: #e3e6ec;
-    padding-left: 2px 0 2px 20px;
-    text-align: center;
-    color: #000000;
-    cursor: pointer;
-}
-.content .getMoreList:hover{
-    background: #9da8bd;
-    color: #e3e6ec;
-}

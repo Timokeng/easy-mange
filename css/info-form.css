@@ -36,6 +36,8 @@
     overflow: auto;
 }
 .main-body .content .info-form .form-item .chooseBox li{
+    height: 21px;
+    overflow: hidden;
     margin-bottom: 5px;
     cursor: pointer;
     border-bottom: 1px solid #bbbfc7;

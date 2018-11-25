@@ -71,8 +71,8 @@
                                                 v-for="(option, index) in options2" 
                                                 :key="index"
                                                 :title="option.name">
-                                                <input type="checkbox" :value="option.id" @change="chooseAuctions($event)"> 
-                                                <span>{{option.id}} — {{option.name.substr(0,7)}}</span>
+                                                <input type="checkbox" @change="chooseAuctions($event, option)"> 
+                                                <span>{{option.id}} — {{option.name}}</span>
                                             </li>
                                         </ul>
                                     </div>

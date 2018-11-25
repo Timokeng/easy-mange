@@ -73,11 +73,12 @@ var app = new Vue({
                 //window.location.href = 'myDeliver.html';
             });
         },
-        chooseAuctions(e){
+        chooseAuctions(e, option){
+            const auction = `${option.id} - ${option.name}`;
             if(e.target.checked){
-                this.deliver.auctions.push(e.target.value);
+                this.deliver.auctions.push(auction);
             } else{
-                this.deliver.auctions.splice(this.deliver.auctions.indexOf(e.target.value), 1);
+                this.deliver.auctions.splice(this.deliver.auctions.indexOf(auction), 1);
             }
         },
         reset(){

@@ -77,8 +77,9 @@
                             <div class="form-item">
                                 <div class="picture-card">
                                     <el-upload
-                                        action="https://jsonplaceholder.typicode.com/posts/"
+                                        action="http://10.32.59.217:8080/images"
                                         list-type="picture-card"
+                                        :headers= "{'Access-Control-Allow-Origin':'*'}"
                                         :limit="10"
                                         :on-exceed="handleExceed"
                                         :on-success="handleSuccess"

@@ -65,14 +65,3 @@
     width: 19%;
     text-align: right;
 }
-.content .moneyList .getMoreList{
-    background: #e3e6ec;
-    padding: 2px 0 2px 20px;
-    text-align: center;
-    color: #000000;
-    cursor: pointer;
-}
-.content .moneyList .getMoreList:hover{
-    background: #9da8bd;
-    color: #e3e6ec;
-}

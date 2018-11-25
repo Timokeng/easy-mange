@@ -7,7 +7,7 @@ var app = new Vue({
                 price: 100,
                 time: '',
                 description: '',
-                url_list: []
+                images: []
             },
             options1: [
                 {name: '今天', value: 1},
@@ -98,7 +98,6 @@ var app = new Vue({
             }
             this.$http.post(this.url, this.auction, {emulateJSON:true}).then(function(res){
                 if(res.body.code === 0){
-                    this.auction_id = res.body.auction_id;
                     this.success = true;
                 } else{
                     alert(res.body.message);
@@ -128,8 +127,9 @@ var app = new Vue({
             this.auction.url_list.splice(this.auction.url_list.indexOf(file.url), 1);
         },
         handleSuccess(res) {
-            if(res.body.code === 0){
-                this.auction.url_list.push(res.body.url);
+            console.log(res);
+            if(res.code === 0){
+                this.auction.images.push(res.image_url);
             } else{
                 alert('上传图片失败请重传');
             }
