@@ -50,25 +50,25 @@
                     </div>
                     <div class="table">
                         <div class="title-tr">
-                            <div class="id">编号</div>
-                            <div class="deliver_id">快递单号</div>
-                            <div class="company">快递公司</div>
-                            <div class="status">状态</div>
-                            <div class="auctions">寄出件拍品</div>
-                            <div class="time">寄出时间</div>
-                            <div class="control">操作</div>
+                            <div class="other">编号</div>
+                            <div class="one">快递单号</div>
+                            <div class="other">快递公司</div>
+                            <div class="other">状态</div>
+                            <div class="one">寄出件拍品</div>
+                            <div class="one">寄出时间</div>
+                            <div class="other">操作</div>
                         </div>
                         <div 
                             class="content-tr"
                             v-for="(deliver, index) in delivers"
                             :key="index">
-                            <div class="id">{{deliver.id}}</div>
-                            <div class="deliver_id">{{deliver.deliver_id}}</div>
-                            <div class="company">{{deliver.company}}</div>
-                            <div class="status">{{deliver.status}}</div>
-                            <div class="auctions" :title="deliver.auctions.join(',')">{{deliver.auctions.join(' ').substr(0,15)+'...'}}</div>
-                            <div class="time">{{deliver.time}}</div>
-                            <div class="control">操作</div>
+                            <div class="other">{{deliver.id}}</div>
+                            <div class="one">{{deliver.deliver_id}}</div>
+                            <div class="other">{{deliver.company}}</div>
+                            <div class="other">{{deliver.status}}</div>
+                            <div class="one" :title="deliver.auctions.join(',')">{{deliver.auctions.join(' ').substr(0,10)+'...'}}</div>
+                            <div class="one">{{deliver.time}}</div>
+                            <div class="other">操作</div>
                         </div>
                     </div>
                     <div class="choosePage">

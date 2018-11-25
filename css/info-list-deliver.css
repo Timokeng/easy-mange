@@ -33,25 +33,9 @@
 }
 
 /*发货信息表样式*/
-.content .table .id{
+.content .table .one{
+    width: 18%;
+}
+.content .table .other{
     width: 10%;
-}
-.content .table .deliver_id{
-    width: 20%;
-}
-.content .table .company{
-    width: 10%;
-}
-.content .table .status{
-    width: 10%;
-}
-.content .table .auctions{
-    width: 20%;
-}
-.content .table .time{
-    width: 15%;
-}
-.content .table .control{
-    width: 10%;
-    cursor: pointer;
 }
