@@ -55,6 +55,12 @@ p{word-wrap:break-word}
     margin-left: 10px;
 }
 
+/*翻页选项*/
+.main-body .content .choosePage{
+    width: 70%;
+    margin: 30px auto;
+}
+
 /*过度动画*/
 .choose-nav-enter-active{
     transition: all .8s ease;

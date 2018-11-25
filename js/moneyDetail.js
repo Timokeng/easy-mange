@@ -10,7 +10,6 @@ var app = new Vue({
                 flow: '支出',
                 remark: '提交过于频繁'
             }],
-            hint: '获取更多',
             moreLists: [],
             page: 1,
             showNav: 3
@@ -31,24 +30,6 @@ var app = new Vue({
             }, function(res){
                 alert('接口还没写呢！');
             });
-        },
-        async getMore(){
-            this.page++;
-            this.hint = '正在获取更多内容';
-            const url = ``;
-            await this.$http.get(url).then(res => {
-                if(res.body.code === 0){
-                    this.moreLists = res.body.details;
-                    this.hint = '获取更多';
-                } else{
-                    this.hint = '已无更多数据';
-                }
-            }, res => {
-                alert('发生未知错误');
-                this.hint = '请稍后再试...';
-            });
-            this.details = this.details.concat(this.moreLists);
-            this.moreLists = [];
         },
         jump(url){
             window.location.href = url;

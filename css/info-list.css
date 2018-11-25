@@ -9,20 +9,3 @@
     color: #9da8bd;
 }
 
-/*获取更多信息按钮样式*/
-.content .getMore{
-    width: 80%;
-    height: 30px;
-    margin: 30px auto;
-    line-height: 30px;
-    background: #e3e6ec;
-    border-radius: 5px;
-    border: 1px solid #e3e6ec;
-    text-align: center;
-    color: #9da8bd;
-    cursor: pointer;
-}
-.content .getMore:hover{
-    background: #9da8bd;
-    color: #e3e6ec;
-}

@@ -3,11 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title>贵似晨星|卖家中心</title>
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/info-list.css">
         <link rel="stylesheet" href="css/info-list-money-detail.css">
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
         <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+        <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     </head>
     <body>
         <div id="app">
@@ -59,7 +61,14 @@
                             <div class="other">{{detail.flow}}</div>
                             <div class="one">{{detail.remark}}</div>
                         </div>
-                        <div class="getMoreList" @click="getMore">{{hint}}</div>
+                    </div>
+                    <div class="choosePage">
+                        <el-pagination
+                            @current-change="getList"
+                            :current-page.sync="page"
+                            layout="prev, pager, next, jumper"
+                            :total="1000">
+                        </el-pagination>
                     </div>
                 </div>
             </div>

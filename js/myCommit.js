@@ -13,7 +13,6 @@ var app = new Vue({
             page: 1,
             auction_status: 'all',
             showNav: 1,
-            hint: '获取更多',
             moreAuctions: []
         }
     },
@@ -22,7 +21,6 @@ var app = new Vue({
     },
     methods: {
         getList(){
-            this.page = 1;
             const url = `https://private-anon-d7acce3be6-auction17.apiary-mock.com/auctions/seller?status=${this.auction_status}&page=${this.page}`;
             this.$http.get(url).then(function(res){
                 if(res.body.code === 0){
@@ -33,24 +31,6 @@ var app = new Vue({
             }, function(res){
                 alert('发生未知错误');
             });
-        },
-        async getMore(){
-            this.page++;
-            this.hint = '正在获取更多内容';
-            const url = `https://private-anon-d7acce3be6-auction17.apiary-mock.com/auctions/seller?status=${this.auction_status}&page=${this.page}`;
-            await this.$http.get(url).then(res => {
-                if(res.body.code === 0){
-                    this.moreAuctions = res.body.auctions;
-                    this.hint = '获取更多';
-                } else{
-                    this.hint = '已无更多数据';
-                }
-            }, res => {
-                alert('发生未知错误');
-                this.hint = '请稍后再试...';
-            });
-            this.auctions = this.auctions.concat(this.moreAuctions);
-            this.moreAuctions = [];
         },
         simpleTitle(title){
             if(title.length >= 14){
