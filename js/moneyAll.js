@@ -17,6 +17,7 @@ var app = new Vue({
                 get_money: 0
             }],
             hint: '获取更多',
+            page: 1,
             moreLists: [],
             showNav: 3
         }

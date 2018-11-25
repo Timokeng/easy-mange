@@ -12,6 +12,7 @@ var app = new Vue({
             }],
             hint: '获取更多',
             moreLists: [],
+            page: 1,
             showNav: 3
         }
     },
