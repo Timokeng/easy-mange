@@ -124,7 +124,7 @@ var app = new Vue({
             alert('每件拍品最多附带十张图片，请仔细考虑');
         },
         handleRemove(file) {
-            this.auction.url_list.splice(this.auction.url_list.indexOf(file.url), 1);
+            this.auction.images.splice(this.auction.images.indexOf(file.url), 1);
         },
         handleSuccess(res) {
             console.log(res);
