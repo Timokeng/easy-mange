@@ -64,7 +64,7 @@ var app = new Vue({
                 alert('请输入拍品标题');
                 return false;
             } else if(this.auction.title.length > 30){
-                alert('起修改标题内容，标题长度不能超过30字');
+                alert('请修改标题内容，标题长度不能超过30字');
                 return false;
             } else if(this.auction.price <= 0){
                 alert('请输入有效价格');
@@ -77,6 +77,9 @@ var app = new Vue({
                 return false;
             } else if(this.auction.description == 0){
                 alert('请输入拍品描述');
+                return false;
+            } else if(this.auction.description.length > 5000){
+                alert('请修改描述内容，描述长度不能超过5000字');
                 return false;
             } else if(this.auction.url_list.length == 0){
                 alert('至少上传一张图片');
