@@ -49,7 +49,8 @@
                             </div>
                             <div class="form-item">
                                 <label>起拍价格</label>
-                                <input v-model="auction.price">
+                                <input v-model="auction.price" style="width:100px;">
+                                <span>元</span>
                             </div>
                             <div class="form-item">
                                 <label>截止时间</label>
@@ -67,6 +68,18 @@
                                         :key="index"
                                     >{{ option.name }}</option>
                                 </select>
+                            </div>
+                            <div class="form-item">
+                                <label>拍品年代</label>
+                                <div class="select-box">
+                                    <select v-model="auction.age">
+                                        <option 
+                                            v-for="(option,index) in options3"
+                                            :value="option.value"
+                                            :key="index"
+                                        >{{ option.name }}</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="content-title">拍品详细</div>
                             <div class="form-item">
@@ -92,7 +105,9 @@
                                     </el-dialog>
                                 </div>
                             </div>
-                            <button class="submitButton">提交发布</button>
+                            <div style="text-align:center;">
+                                <button class="submitButton">提交发布</button>
+                            </div>
                         </form>
                     </div>
                     <div class="successMessage" v-if="success">

@@ -1,6 +1,6 @@
 /*上传表单样式*/
 .main-body .content .info-form{
-    margin: 50px 40px;
+    margin: 30px 10px;
 }
 .main-body .content .info-form div{
     margin-bottom: 20px;
@@ -13,18 +13,29 @@
     padding-left: 20px;
 }
 .main-body .content .info-form .form-item input{
-    width: 60%;
+    width: 80%;
     height: 25px;
     margin-left: 20px;
 }
 .main-body .content .info-form .form-item textarea{
-    width: 60%;
+    width: 80%;
+    resize: vertical;
     margin-left: 20px;
 }
 .main-body .content .info-form .form-item select{
-    width: 25%;
+    width: 100px;
     height: 25px;
     margin-left: 20px;
+}
+.main-body .content .info-form .form-item .select-box{
+    display: inline-block;
+    width: 150px;
+    margin-bottom: 0;
+}
+.main-body .content .info-form .form-item .picture-card{
+    width: 80%;
+    margin-left: 80px;
+    display: inline-block;
 }
 
 /*下拉选择框*/
@@ -48,12 +59,11 @@
     margin-left: 5px;
 }
 .main-body .content .info-form .submitButton{
-    width: 50%;
+    width: 200px;
     height: 40px;
     color: #fff;
     background: #ff4500;
     font-size: 18px;
-    margin-left: 20%;
     border-radius: 5px;
     outline: none;
     cursor: pointer;

@@ -7,6 +7,7 @@ var app = new Vue({
                 price: 100,
                 time: '',
                 description: '',
+                age: '',
                 images: []
             },
             options1: [
@@ -30,6 +31,12 @@ var app = new Vue({
                 {name: '22:00', value:'22:00:00'},
                 {name: '23:00', value:'23:00:00'},
                 {name: '24:00', value:'24:00:00'},
+            ],
+            options3: [
+                {name: '清代', value: 'qing'},
+                {name: '民国', value: 'roc'},
+                {name: '解放区', value: 'liberated'},
+                {name: '新中国', value: 'prc'},
             ],
             day: 1,
             hour: '10:00:00',
@@ -66,14 +73,18 @@ var app = new Vue({
             } else if(this.auction.title.length > 30){
                 alert('请修改标题内容，标题长度不能超过30字');
                 return false;
-            } else if(this.auction.price <= 0){
-                alert('请输入有效价格');
+            } else if(this.auction.price <= 0 || typeof this.auction.price !== 'number'){
+                this.auction.price = 0;
+                alert('请输入有效价格,暂不支持小数');
                 return false;
             } else if(this.day == 0){
                 alert('请选择截拍日');
                 return false;
             } else if(this.hour == 0){
                 alert('请选择截拍点');
+                return false;
+            } else if(this.auction.age == 0){
+                alert('请选择拍品年代');
                 return false;
             } else if(this.auction.description == 0){
                 alert('请输入拍品描述');

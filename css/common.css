@@ -22,10 +22,9 @@ p{word-wrap:break-word}
 }
 
 .main-body .nav{
-    width: 200px;
+    width: 170px;
     height: auto;
     min-height: 500px;
-    margin-right: 20px;
     margin-bottom: 100px;
     padding: 40px 20px;
     border-top: 6px solid #ff4500;
